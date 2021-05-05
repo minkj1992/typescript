@@ -1,22 +1,21 @@
-function hello(word = 'minwook'): string {
-  return `Hello ${word}`;
+type MenuOptions = {
+  title?: string;
+  body?: string;
+  buttonText?: string;
+  cancellable?: boolean;
+};
+
+const defaultMenuOptions: MenuOptions = {
+  title: '순대국밥',
+  body:
+    '순대국밥이란, 돼지뼈를 우린다. 우린 육수에 순대를 넣어 끓여먹는 국밥형태의 음식',
+  buttonText: '주문',
+  cancellable: true,
+};
+
+function createMenu(menuOptions: MenuOptions) {
+  const newMenuOptions = Object.assign(defaultMenuOptions, menuOptions);
+  console.log(newMenuOptions);
 }
 
-const add = (a: number): ((_: number) => number) => (b: number): number =>
-  a + b;
-
-console.log(hello());
-console.log(add(1)(2));
-
-export class IterableGenerator<T> implements Iterable<T> {
-  constructor(private values: T[] = [], private currentIndex: number = 0) {}
-
-  [Symbol.iterator] = function* (this: IterableGenerator<T>) {
-    while (this.currentIndex < this.values.length) {
-      yield this.values[this.currentIndex++];
-    }
-  };
-}
-
-for (const num of new IterableGenerator([1, 2, 3])) console.log(num);
-for (const name of new IterableGenerator(['minwook', 'leo'])) console.log(name);
+createMenu({body: 'override test'});
