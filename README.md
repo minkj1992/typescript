@@ -1,2 +1,2 @@
-# typescript-handbook
+# typescript
 https://www.typescriptlang.org/docs/
