@@ -16,6 +16,8 @@ const defaultMenuOptions: MenuOptions = {
 function createMenu(menuOptions: MenuOptions) {
   const newMenuOptions = Object.assign(defaultMenuOptions, menuOptions);
   console.log(newMenuOptions);
+  const obj: any = {x: 10};
+  console.log(obj);
 }
 
 createMenu({body: 'override test'});
